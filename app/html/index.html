@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suscripción al Periódico</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/app.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Suscripción al Diario</h2>
+        
+        <form action="#" method="POST">
+            
+            <div class="form-group">
+                <label for="nombre">Nombre de usuario:</label>
+                <input type="text" id="nombre" name="nombre" oninput="validarUsuario()" placeholder="Ej. Juan Pérez" required>
+                <p id="texto1"></p>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" oninput="validarEmail()" placeholder="juan@ejemplo.com" required>
+                <p id="texto2"></p>
+            </div>
+
+            <div class="form-group">
+                <label for="telefono">Teléfono de contacto:</label>
+                <input type="tel" id="telefono" name="telefono" oninput="validarTelefono()" placeholder="Ej. 600123456" pattern="[0-9]{9,}" title="Solo números" required>
+                <p id="texto3"></p>
+            </div>
+
+            <div class="form-group">
+                <label>Temas de interés:</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="deportes" name="temas" value="deportes">
+                        <label for="deportes" style="margin:0; font-weight:normal;">Deportes</label>
+                    </div>
+                    
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="moda" name="temas" value="moda">
+                        <label for="moda" style="margin:0; font-weight:normal;">Moda y Estilo</label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="politica" name="temas" value="politica">
+                        <label for="politica" style="margin:0; font-weight:normal;">Política</label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="tecnologia" name="temas" value="tecnologia">
+                        <label for="tecnologia" style="margin:0; font-weight:normal;">Tecnología</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="tecnologia" name="temas" value="añadir">
+                        <label for="tecnologia" style="margin:0; font-weight:normal;">Añadir otro tema</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-container">
+                <button type="submit" class="btn-submit">Enviar</button>
+                <button type="reset" class="btn-reset">Borrar (Reset)</button>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>
