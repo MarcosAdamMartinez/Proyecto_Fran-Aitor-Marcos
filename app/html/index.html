@@ -28,13 +28,40 @@
 
             <div class="form-group">
                 <label for="telefono">Teléfono de contacto:</label>
-                <input type="tel" id="telefono" name="telefono" oninput="validarTelefono()" placeholder="Ej. 600123456" pattern="[0-9]{9,}" title="Solo números" required>
+                <input type="text" id="telefono" name="telefono" oninput="validarTelefono()" placeholder="Ej. 600123456" required>
                 <p id="texto3"></p>
             </div>
 
             <div class="form-group">
+                <label for="comunidad">Comunidad Autónoma:</label>
+                <select id="comunidad" name="comunidad" onclick="validarSelect()" required>
+                    <option value="" disabled selected>Selecciona tu comunidad</option>
+                    <option value="andalucia">Andalucía</option>
+                    <option value="aragon">Aragón</option>
+                    <option value="asturias">Principado de Asturias</option>
+                    <option value="baleares">Islas Baleares</option>
+                    <option value="canarias">Canarias</option>
+                    <option value="cantabria">Cantabria</option>
+                    <option value="castillalamancha">Castilla-La Mancha</option>
+                    <option value="castillaleon">Castilla y León</option>
+                    <option value="cataluna">Cataluña</option>
+                    <option value="extremadura">Extremadura</option>
+                    <option value="galicia">Galicia</option>
+                    <option value="rioja">La Rioja</option>
+                    <option value="madrid">Comunidad de Madrid</option>
+                    <option value="murcia">Región de Murcia</option>
+                    <option value="navarra">Comunidad Foral de Navarra</option>
+                    <option value="paisvasco">País Vasco</option>
+                    <option value="valencia">Comunidad Valenciana</option>
+                    <option value="ceuta">Ceuta</option>
+                    <option value="melilla">Melilla</option>
+                </select>
+            </div>
+            <p id="texto4"></p>
+
+            <div class="form-group">
                 <label>Temas de interés:</label>
-                <div class="checkbox-group">
+                <div class="checkbox-group" onchange="validarCheckBoxes()">
                     <div class="checkbox-item">
                         <input type="checkbox" id="deportes" name="temas" value="deportes">
                         <label for="deportes" style="margin:0; font-weight:normal;">Deportes</label>
@@ -54,12 +81,31 @@
                         <input type="checkbox" id="tecnologia" name="temas" value="tecnologia">
                         <label for="tecnologia" style="margin:0; font-weight:normal;">Tecnología</label>
                     </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="tecnologia" name="temas" value="añadir">
-                        <label for="tecnologia" style="margin:0; font-weight:normal;">Añadir otro tema</label>
+
+                    <div id="nuevos-temas-container">
                     </div>
                 </div>
+
+                <div class="add-topic-container" style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+    
+                <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                    <input type="text" id="nuevo-tema-texto" placeholder="Nuevo tema..." 
+                        style="flex: 1; width: auto; padding: 10px; margin: 0;">
+                    
+                    <button type="button" onclick="agregarTemaNuevo()" 
+                            style="width: auto; padding: 10px 20px; font-size: 14px; background-color: #7f8c8d; margin: 0; white-space: nowrap;">
+                        Añadir
+                    </button>
+                </div>
+
+                <button type="button" onclick="eliminarTemasSeleccionados()" 
+                        style="width: 100%; padding: 10px; font-size: 14px; background-color: #c0392b; margin: 0;">
+                    Eliminar temas seleccionados
+                </button>
+
             </div>
+            </div>
+            <p id="texto5"></p>
 
             <div class="btn-container">
                 <button type="submit" class="btn-submit">Enviar</button>
