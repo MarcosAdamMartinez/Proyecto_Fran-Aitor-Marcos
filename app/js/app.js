@@ -14,6 +14,12 @@ function inicializar() {
 
         const hayErrores = document.querySelectorAll('.campo-error').length > 0;
 
+        // uso navigator.onLine
+        if (!navigator.onLine) {
+            alert("No se ha podido enviar el formulario sin conexión a Internet.");
+            return;
+        }
+
         if (hayErrores) {
             let campos = '';
 
@@ -27,6 +33,21 @@ function inicializar() {
             alert("Formulario enviado con éxito.");
         }
     });
+
+    // Comprobar la conexión a Internet
+    const container = document.querySelector('.container');
+
+    function actualizarEstadoConexion() {
+        // FORZAMOS toggle según estado
+        container.classList.toggle('sin-conexion', !navigator.onLine);
+    }
+
+    // Comprobación inicial
+    actualizarEstadoConexion();
+
+    window.addEventListener('online', actualizarEstadoConexion);
+    window.addEventListener('offline', actualizarEstadoConexion);
+
 }
 
 document.addEventListener('DOMContentLoaded', inicializar);
@@ -127,6 +148,8 @@ function validarCheckBoxes() {
     checkboxes.forEach(checkbox => {
         if (checkbox.checked) {
             algunoSeleccionado = true;
+            // Uso dataset
+            console.log("Tema seleccionado: " + checkbox.value + "| Categoria: " + checkbox.dataset.categoria);
         }
     });
 
